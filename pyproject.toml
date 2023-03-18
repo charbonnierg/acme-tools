@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acme-tools"
+authors = [
+    { name = "Guillaume Charbonnier", email = "guillaume.charbonnier@araymond.com" },
+]
+description = "ACME DNS-01 client in Python"
+readme = "README.md"
+requires-python = ">=3.8,<4.0"
+license = { text = "Apache-2.0" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+dynamic = ["version"]
+dependencies = []
+
+[project.optional-dependencies]
+build = ["build", "invoke", "pip-tools"]
+dev = [
+    "black",
+    "isort",
+    "invoke",
+    "flake8",
+    "mypy",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "types-setuptools",
+]
+docs = [
+    "mkdocs-gen-files",
+    "mkdocs-literate-nav",
+    "mkdocs-material",
+    "mkdocs-section-index",
+    "mkdocstrings[python]",
+    "pymdown-extensions",
+]
+
+[project.urls]
+Repository = "https://github.com/quara-dev/acme-tools"
+Issues = "https://github.com/quara-dev/acme-tools/issues"
+
+
+[tool.setuptools.dynamic]
+version = { attr = "acme_tools.__version__" }
