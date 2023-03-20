@@ -1,7 +1,3 @@
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "acme-tools"
 authors = [
@@ -16,7 +12,7 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 dynamic = ["version"]
-dependencies = []
+dependencies = ["dnspython", "httpx", "acme"]
 
 [project.optional-dependencies]
 build = ["build", "invoke", "pip-tools"]
@@ -46,4 +42,8 @@ Issues = "https://github.com/quara-dev/acme-tools/issues"
 
 
 [tool.setuptools.dynamic]
-version = { attr = "acme_tools.__version__" }
+version = { attr = "acme_tools.__about__.__version__" }
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
